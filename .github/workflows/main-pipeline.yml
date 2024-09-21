@@ -2,15 +2,15 @@ name: 00 - Main CI / CD Pipeline
 
 on:
   push:
-    branches: { "main" }
+    branches:
+      - main  # Use list format for branches
     paths-ignore:
       - '**/*.md'
       - '**/*.txt'
-workflow_dispatch:
+  workflow_dispatch:
 
 jobs:
   build:
-  name: Build
-  uses: ./.github/workflows/build.yml
-  secrets: inherit #https://docs.github/en/actions/using-workflows/workflow-syntax-for-github-actions#jobsjob_idsecretsinherit
-  
+    name: Build  # Correct indentation here
+    uses: ./.github/workflows/build.yml
+    secrets: inherit  # Inherit secrets from the repository or organization level
